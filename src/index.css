@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&family=Dancing+Script:wght@700&display=swap');
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Lateinische Ausgangsschrift';
+  src: url('https://cdn.jsdelivr.net/gh/mizunoma/Lateinische-Ausgangsschrift@master/LateinischeAusgangsschrift.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Quicksand", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fredoka", sans-serif;
+  --font-cursive: "Dancing Script", cursive;
+  --font-school: "Lateinische Ausgangsschrift", cursive;
+  
+  --color-brand-yellow: #FFD93D;
+  --color-brand-orange: #FF8400;
+  --color-brand-green: #6BCB77;
+  --color-brand-blue: #4D96FF;
+  --color-brand-red: #FF6B6B;
+}
+
+@layer base {
+  body {
+    @apply bg-[#FDF7E4] text-[#2D2D2D] selection:bg-brand-yellow selection:text-black min-h-screen overflow-x-hidden;
+  }
+}
+
+.kid-shadow {
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.15);
+}
+
+.kid-shadow-hover {
+  @apply transition-all duration-200 active:translate-y-1 active:shadow-none;
+}
+
+.dots-pattern {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.gradient-mesh {
+  background: 
+    radial-gradient(at 0% 0%, rgba(255, 217, 61, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(77, 150, 255, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(255, 107, 107, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(107, 203, 119, 0.1) 0px, transparent 50%);
+}
+
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}

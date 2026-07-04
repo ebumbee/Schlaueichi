@@ -1,0 +1,10 @@
+{
+  "name": "SchlauEichi LernAbenteuer",
+  "description": "Lerne spielerisch Rechnen und Lesen mit dem Eichhörnchen. Mathe-Aufgaben bis 10, Silben-Rätsel und Bonus-Spiele.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
