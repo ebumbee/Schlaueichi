@@ -1044,20 +1044,20 @@ export default function MathGame({
                       return (
                         <div className="flex flex-col items-center gap-4 sm:gap-8 w-full">
                           <p className="font-display text-base sm:text-xl md:text-3xl text-brand-blue mb-1 sm:mb-4 font-bold">{question.story}</p>
-                          <div className="flex flex-nowrap gap-1.5 sm:gap-3 md:gap-4 items-center justify-center bg-white p-4 sm:p-8 rounded-3xl shadow-inner border border-gray-100 w-full select-none overflow-x-auto whitespace-nowrap scrollbar-none">
+                          <div className="flex flex-nowrap gap-3 sm:gap-6 md:gap-8 items-center justify-center bg-white p-4 sm:p-8 rounded-3xl shadow-inner border border-gray-100 w-full select-none overflow-x-auto whitespace-nowrap scrollbar-none">
                             {(() => {
                               const data = JSON.parse(question.items);
                               const full = data.full;
                               const missingIdx = data.missingIdx;
                               return full.map((s: number, i: number) => (
                                 <React.Fragment key={i}>
-                                  <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                                  <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                                     {i === missingIdx ? (
-                                      <span className="text-xl sm:text-3xl md:text-5xl font-display text-brand-yellow animate-pulse font-black">?</span>
+                                      <span className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-display text-brand-yellow animate-pulse font-black">?</span>
                                     ) : (
-                                      <span className="text-xl sm:text-3xl md:text-5xl font-display text-gray-700 font-bold">{s}</span>
+                                      <span className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-display text-slate-800 font-black">{s}</span>
                                     )}
-                                    {i < full.length - 1 && <span className="text-gray-300 text-sm sm:text-xl md:text-3xl px-0.5 sm:px-1 pointer-events-none">...</span>}
+                                    {i < full.length - 1 && <span className="text-gray-300 text-2xl sm:text-4xl md:text-6xl lg:text-7xl px-1 sm:px-2 pointer-events-none">...</span>}
                                   </div>
                                 </React.Fragment>
                               ));
@@ -1334,7 +1334,7 @@ export default function MathGame({
                 <motion.div 
                   initial={{ scale: 0, rotate: -20 }}
                   animate={{ scale: 1.4, rotate: 0 }}
-                  className="w-24 h-24 bg-white rounded-[32px] kid-shadow flex flex-col items-center justify-center border-4 border-brand-orange"
+                  className={`w-24 h-24 bg-white rounded-[32px] kid-shadow flex flex-col items-center justify-center border-4 ${isLastCorrect ? 'border-brand-green' : 'border-brand-red'}`}
                 >
                   <motion.div 
                     animate={isLastCorrect ? 
@@ -1347,17 +1347,34 @@ export default function MathGame({
                         y: [0, 10, 0],
                         x: [-5, 5, -5, 5, 0], 
                         rotate: [0, 15, 0],
-                        filter: "grayscale(1) contrast(0.5)", 
-                        scale: 0.7 
+                        scale: 0.8
                       }
                     }
                     transition={isLastCorrect ? 
                       { repeat: Infinity, duration: 0.8 } : 
                       { duration: 0.5 }
                     }
-                    className="w-20 h-20 relative"
+                    className="w-20 h-20 flex items-center justify-center relative"
                   >
-                    <SquirrelMascot mood={isLastCorrect ? 'HAPPY' : 'SAD'} className="w-full h-full" />
+                    {isLastCorrect ? (
+                      <div className="w-full h-full flex items-center justify-center">
+                        <svg 
+                          viewBox="0 0 24 24" 
+                          className="w-16 h-16 text-brand-green filter drop-shadow-sm" 
+                          fill="none" 
+                          stroke="currentColor" 
+                          strokeWidth="4.5" 
+                          strokeLinecap="square" 
+                          strokeLinejoin="miter"
+                        >
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      </div>
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-5xl select-none filter drop-shadow-sm">
+                        😢
+                      </div>
+                    )}
                     {!isLastCorrect && (
                       <motion.div 
                         initial={{ scale: 0, opacity: 0 }}
@@ -1365,7 +1382,6 @@ export default function MathGame({
                         className="absolute -top-12 left-1/2 -translate-x-1/2 flex flex-col items-center"
                       >
                         <span className="text-4xl">🌧️</span>
-                        <span className="text-4xl">😟</span>
                       </motion.div>
                     )}
                     {isLastCorrect && (

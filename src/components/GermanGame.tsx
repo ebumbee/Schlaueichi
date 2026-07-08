@@ -1223,7 +1223,7 @@ export default function GermanGame({
                  <motion.div 
                    initial={{ scale: 0, rotate: -20 }}
                    animate={{ scale: 1.4, rotate: 0 }}
-                   className="w-24 h-24 bg-white rounded-[32px] kid-shadow flex flex-col items-center justify-center border-4 border-brand-orange"
+                   className={`w-24 h-24 bg-white rounded-[32px] kid-shadow flex flex-col items-center justify-center border-4 ${isLastCorrect ? 'border-brand-green' : 'border-brand-red'}`}
                  >
                 <motion.div 
                   animate={isLastCorrect ? 
@@ -1236,17 +1236,34 @@ export default function GermanGame({
                       y: [0, 10, 0],
                       x: [-5, 5, -5, 5, 0], 
                       rotate: [0, 15, 0],
-                      filter: "grayscale(1) contrast(0.5)", 
-                      scale: 0.7 
+                      scale: 0.8
                     }
                   }
                   transition={isLastCorrect ? 
                     { repeat: Infinity, duration: 0.8 } : 
                     { duration: 0.5 }
                   }
-                  className="w-20 h-20 relative"
+                  className="w-20 h-20 flex items-center justify-center relative"
                 >
-                  <SquirrelMascot mood={isLastCorrect ? 'HAPPY' : 'SAD'} className="w-full h-full" />
+                  {isLastCorrect ? (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <svg 
+                        viewBox="0 0 24 24" 
+                        className="w-16 h-16 text-brand-green filter drop-shadow-sm" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="4.5" 
+                        strokeLinecap="square" 
+                        strokeLinejoin="miter"
+                      >
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    </div>
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-5xl select-none filter drop-shadow-sm">
+                      😢
+                    </div>
+                  )}
                   {!isLastCorrect && (
                     <motion.div 
                       initial={{ scale: 0, opacity: 0 }}
@@ -1254,7 +1271,6 @@ export default function GermanGame({
                       className="absolute -top-12 left-1/2 -translate-x-1/2 flex flex-col items-center"
                     >
                       <span className="text-4xl">🌧️</span>
-                      <span className="text-4xl">😟</span>
                     </motion.div>
                   )}
                   {isLastCorrect && (
