@@ -1358,17 +1358,7 @@ export default function MathGame({
                   >
                     {isLastCorrect ? (
                       <div className="w-full h-full flex items-center justify-center">
-                        <svg 
-                          viewBox="0 0 24 24" 
-                          className="w-16 h-16 text-brand-green filter drop-shadow-sm" 
-                          fill="none" 
-                          stroke="currentColor" 
-                          strokeWidth="4.5" 
-                          strokeLinecap="square" 
-                          strokeLinejoin="miter"
-                        >
-                          <polyline points="20 6 9 17 4 12" />
-                        </svg>
+                        <SquirrelMascot mood="HAPPY" className="w-16 h-16" />
                       </div>
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-5xl select-none filter drop-shadow-sm">
