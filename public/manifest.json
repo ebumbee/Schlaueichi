@@ -2,7 +2,7 @@
   "name": "SchlauEichi LernAbenteuer",
   "short_name": "SchlauEichi",
   "description": "Spielerisch Rechnen und Lesen lernen mit dem Eichhörnchen.",
-  "start_url": "./",
+  "start_url": "/Schlaueichi/",
   "display": "standalone",
   "background_color": "#F8F9FA",
   "theme_color": "#FFD93D",
