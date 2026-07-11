@@ -222,7 +222,7 @@ export default function App() {
                       Abenteuer starten!
                     </h3>
                     <p className="text-base sm:text-lg md:text-xl text-gray-600 font-bold mb-2">
-                      Wechselnde Mathe- und Deutschaufgaben für schlaue Köpfe!
+                      Wechselnde Mathe- und Deutschaufgaben für schlaue Köpfe in der 1. Klasse!
                     </p>
                     <p className="text-xs sm:text-sm text-gray-400 font-medium">
                       Lerne spielerisch Rechnen und Lesen und sammle tolle Sterne!
@@ -238,7 +238,7 @@ export default function App() {
 
               <motion.div 
                 variants={itemVariants}
-                className="mt-12 md:mt-20 text-center animate-pulse"
+                className="mt-12 md:mt-16 text-center animate-pulse"
               >
                 <div className="inline-flex items-center gap-2 bg-white px-6 py-3 rounded-full kid-shadow border border-white/20">
                   <Sparkles className="w-4 h-4 text-brand-yellow" />

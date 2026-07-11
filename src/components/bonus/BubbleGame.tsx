@@ -73,6 +73,7 @@ export default function BubbleGame({ onComplete }: BubbleGameProps) {
   };
 
   if (!isActive && timeLeft === 0) {
+    const finalPoints = Math.floor(score / 4);
     return (
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
@@ -81,9 +82,10 @@ export default function BubbleGame({ onComplete }: BubbleGameProps) {
       >
         <Zap className="w-16 h-16 text-brand-blue mx-auto mb-6" />
         <h2 className="font-display text-4xl mb-4">Blubber-Spaß vorbei!</h2>
-        <p className="text-2xl font-bold text-brand-green mb-8">+{score} Bonus-Punkte!</p>
+        <p className="text-xl text-gray-600 mb-2">{score} Seifenblasen zerplatzt</p>
+        <p className="text-2xl font-bold text-brand-green mb-8">+{finalPoints} Bonus-Punkt{finalPoints === 1 ? '' : 'e'}!</p>
         <button
-          onClick={() => onComplete(score)}
+          onClick={() => onComplete(finalPoints)}
           className="w-full py-4 bg-brand-blue text-white rounded-2xl font-display text-xl kid-shadow kid-shadow-hover"
         >
           Zurück zum Lernen
@@ -94,9 +96,14 @@ export default function BubbleGame({ onComplete }: BubbleGameProps) {
 
   return (
     <div className="fixed inset-0 z-50 bg-gradient-to-b from-blue-400 to-blue-600 flex flex-col items-center justify-center overflow-hidden">
-      <div className="absolute top-10 left-10 text-white font-display text-2xl flex items-center gap-3">
-        <div className="w-6 h-6 rounded-full border-2 border-white opacity-50" />
-        <span>{score}</span>
+      <div className="absolute top-10 left-10 text-white font-display text-2xl flex flex-col items-start gap-1 bg-black/20 p-3 rounded-2xl backdrop-blur-sm">
+        <div className="flex items-center gap-3">
+          <div className="w-6 h-6 rounded-full border-2 border-white opacity-50" />
+          <span>{score} Blasen</span>
+        </div>
+        <div className="text-sm opacity-90 font-sans font-bold">
+          Punkte: {Math.floor(score / 4)}
+        </div>
       </div>
       
       <div className="absolute top-10 right-10 text-white font-display text-2xl flex items-center gap-3">
