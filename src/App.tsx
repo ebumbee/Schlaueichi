@@ -5,12 +5,13 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Calculator, Languages, Rocket, Heart, Star, Sparkles, Settings as SettingsIcon, Timer, Coffee } from 'lucide-react';
+import { Calculator, Languages, Rocket, Heart, Star, Sparkles, Settings as SettingsIcon, Timer, Coffee, Smartphone } from 'lucide-react';
 import MathGame from './components/MathGame';
 import GermanGame from './components/GermanGame';
 import ReflexGame from './components/ReflexGame';
 import Settings from './components/Settings';
 import SquirrelMascot from './components/SquirrelMascot';
+import InstallAppBanner from './components/InstallAppBanner';
 import { GameMode, GermanFontStyle } from './types';
 
 const ALL_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜß".split("");
@@ -234,6 +235,11 @@ export default function App() {
                     <Rocket className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                   </div>
                 </motion.button>
+              </div>
+
+              {/* PWA-Installation-Banner */}
+              <div className="max-w-2xl mx-auto px-4 mt-6">
+                <InstallAppBanner />
               </div>
 
               <motion.div 

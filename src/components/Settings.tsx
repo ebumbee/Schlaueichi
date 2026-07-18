@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowLeft, CheckCircle2, Circle } from 'lucide-react';
+import { ArrowLeft, CheckCircle2, Circle, Smartphone, Download } from 'lucide-react';
 
 import { GermanFontStyle } from '../types';
 
@@ -198,6 +198,26 @@ export default function Settings({
               })}
             </div>
           </div>
+        </section>
+
+        {/* App Installation Section */}
+        <section className="bg-white rounded-[2.5rem] p-8 shadow-[0_20px_50px_rgba(0,0,0,0.05)] kid-shadow border-4 border-brand-yellow/5 text-left">
+          <h3 className="font-display text-2xl font-bold mb-4 text-brand-orange flex items-center gap-2 underline decoration-brand-orange/20 underline-offset-8">
+            <span>📱</span> SchlauEichi App installieren
+          </h3>
+          <p className="text-gray-500 mb-6 font-medium text-sm md:text-base leading-relaxed">
+            Möchtest du SchlauEichi als vollwertige App auf deinem Handy, Tablet oder Computer speichern? Dann kannst du jederzeit blitzschnell und offline spielen!
+          </p>
+          <button
+            id="settings-install-app-btn"
+            onClick={() => {
+              window.dispatchEvent(new CustomEvent('show-pwa-install-guide'));
+            }}
+            className="w-full flex items-center justify-center gap-2 bg-brand-blue text-white font-extrabold px-6 py-4 rounded-2xl kid-shadow text-base hover:bg-brand-blue/95 transition-transform hover:scale-102 border-b-4 border-blue-800 cursor-pointer"
+          >
+            <Smartphone className="w-5 h-5" />
+            <span>Installations-Anleitung öffnen</span>
+          </button>
         </section>
       </motion.div>
     </div>
